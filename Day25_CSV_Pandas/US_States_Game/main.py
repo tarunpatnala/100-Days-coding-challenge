@@ -35,10 +35,6 @@ while len(guessed_states) < 50:
         turtle2.goto(int(state_data.x), int(state_data.y))
         turtle2.write(result)
 
-not_guessed_state = []
-for item in all_states:
-    if item not in guessed_states:
-        not_guessed_state.append(item)
-
+not_guessed_state = [state for state in all_states if state not in guessed_states]
 data = pandas.DataFrame(not_guessed_state)
 data.to_csv("not_guessed_states.csv", index=False, header=False)
