@@ -1,0 +1,23 @@
+class Solution:
+    def twoSum(nums: list[int], target: int) -> list[int]:
+        numDict = {}
+        n = len(nums)
+        for i in range(n):
+            temp = target-nums[i]
+            if temp in numDict:
+                return [numDict[temp], i]
+            numDict[nums[i]] = i
+        return []
+    
+
+print(Solution.twoSum([2,7,11,15], 9))
+print(Solution.twoSum([3,2,4], 6))
+print(Solution.twoSum([3,3], 6))
+
+'''Create a dictionary, 
+    loop through array of nums based on index, 
+    get target - num[i] and check if that exist in dictionary 
+        if yes 
+            then get the value of the key (which is target-nums[i]) and return the array with the value and index 
+        else 
+            add the nums[i] to the dictionary with key as nums[i] and value as index'''
