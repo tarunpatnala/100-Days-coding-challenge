@@ -1,0 +1,9 @@
+class Solution:
+    def eliminateMaximum(self, dist: List[int], speed: List[int]) -> int:
+        results = [dist[i]/speed[i] for i in range(len(dist))]
+        results.sort()
+        for final, monster in enumerate(results):
+            if final >= monster:
+                return final
+        return final+1
+        
